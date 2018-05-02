@@ -1,0 +1,10 @@
+Revision history for Games::Cards::Match
+
+0.03  2018-05-02
+      - Game script fully functional now.
+
+0.02  2018-04-30
+      - Added unit test.
+
+0.01  2018-04-24
+      - First draft submitted.

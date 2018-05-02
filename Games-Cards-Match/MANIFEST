@@ -1,0 +1,16 @@
+Changes
+lib/Games/Cards/Match.pm
+lib/Games/Cards/Match/Card.pm
+lib/Games/Cards/Match/Player.pm
+lib/Games/Cards/Match/DataType.pm
+script/play-cards-match
+Makefile.PL
+MANIFEST
+MANIFEST.SKIP
+README
+t/00-load.t
+t/01-games-cards-match.t
+t/02-games-cards-match-card.t
+t/03-games-cards-match-player.t
+t/manifest.t
+t/pod.t

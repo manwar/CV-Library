@@ -1,0 +1,44 @@
+#!/usr/bin/perl
+
+package App::Games::Cards::Match;
+
+use Games::Cards::Match;
+
+use Moo;
+use namespace::autoclean;
+use MooX::Options;
+
+sub run {
+    my ($self) = @_;
+
+    select(STDOUT);
+    $|=1;
+
+    $SIG{'INT'} = sub { print {*STDOUT} "\n\nCaught Interrupt (^C), Aborting\n"; exit(1); };
+    my $game = Games::Cards::Match->new();
+    print {*STDOUT} $game->show_board, "\n";
+    do {
+        $game->play;
+        $game->next_player;
+    } until ($game->is_over);
+
+    print {*STDOUT} $game->result,      "\n";
+    print {*STDOUT} $game->final_score, "\n";
+    print {*STDOUT} "Thank you.\n";
+}
+
+package main;
+
+use strict; use warnings;
+
+App::Games::Cards::Match->new_with_options->run;
+
+END {
+    my $time = time - $^T;
+    my $mm   = $time / 60;
+    my $ss   = $time % 60;
+    my $hh   = $mm / 60;
+    $mm = $mm % 60;
+
+    print sprintf("Total Time: %02d:%02d:%02d.\n", $hh, $mm, $ss);
+}
