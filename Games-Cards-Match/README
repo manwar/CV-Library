@@ -8,3 +8,7 @@ To install this module, run the following commands:
     make
     make test
     make install
+
+PLAY
+
+Just execute the game script play-cards-match.
